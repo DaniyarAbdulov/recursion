@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import Typography from "@mui/material/Typography";
+
 
 interface Item {
   id: string;
@@ -42,7 +39,7 @@ const App = () => {
   const deleteLevel = (itemId: string) => {
     const filteredData = data.filter((item) => item.id !== itemId);
 
-    // Рекурсивно удаляем всех детей элемента
+    
     const deleteChildren = (parentId: string | null) => {
       const childrenToDelete = filteredData.filter(
         (item) => item.parentId === parentId
@@ -67,7 +64,7 @@ const App = () => {
     if (item) {
       item.visible = !item.visible;
 
-      // Рекурсивно скрываем/показываем всех детей элемента
+
       const toggleChildrenVisibility = (parentId: string | null, visible: boolean) => {
         const childrenToUpdate = updatedData.filter(
           (child) => child.parentId === parentId
